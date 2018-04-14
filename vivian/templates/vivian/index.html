@@ -11,18 +11,20 @@ body {font-family: "Lato", sans-serif}
 .mySlides {display: none}
 </style>
 <body>
-
+{%load vivian_commands%}
 <!-- Page content -->
 <div class="w3-content" style="max-width:2000px;margin-top:46px">
-
-
 
   {% for key in question %}
   <!-- The Band Section -->
   <div class="w3-container w3-content  w3-padding-64" style="max-width:800px" id="band">
     <h2 class="w3-wide w3-center">{{key.title}}</h2>
     <p class="w3-opacity w3-center"><i>{{key.score}}</p>
-    <p class="w3-justify">{{key.comment}}</p>
+    <p class="w3-justify">
+{% autoescape off %}
+      {{key.comment|markdown}}
+    {% endautoescape %}
+  </p>
     <div class="w3-row w3-padding-32">
       <div class="w3-third">
         <p>{{key.pub_date}}</p>
