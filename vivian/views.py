@@ -6,6 +6,6 @@ import markdown2
 
 
 def index(request):
-    v=markdown2.markdown(reddit())
+    v=reddit()
     latest_question_list = Writingprompt.objects.all()
     return render(request, 'vivian/index.html', {'question': latest_question_list, 'raw_comment':v})

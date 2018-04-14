@@ -9,13 +9,14 @@ def reddit():
                          user_agent='my user agent')
 
                          #print(reddit.read_only)  # Output: True
+    stickies = [reddit.subreddit("writingprompts").sticky(i).id for i in range(1,4)]
 
-    stickies = [reddit.subreddit("writingprompts").sticky(i).id for i in range(1,2)]
-
-    for submission in reddit.subreddit('writingprompts').hot(limit=3):
+    for submission in reddit.subreddit('writingprompts').hot(limit=20):
         if submission.id not in stickies:
+
             date = datetime.utcfromtimestamp(submission.created_utc)
             top_comment = [comment.body for comment in submission.comments if (hasattr(comment, "body") and comment.distinguished==None)][0]
             Writingprompt.objects.update_or_create(title=submission.title, comment=top_comment,
             defaults={'score':submission.score, 'pub_date':date},)
-            return top_comment
+
+            return 30
