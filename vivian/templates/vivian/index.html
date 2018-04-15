@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<title>W3.CSS Template</title>
+<title>Writingprompt</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -18,7 +18,7 @@ body {font-family: "Lato", sans-serif}
   {% for key in question %}
   <!-- The Band Section -->
   <div class="w3-container w3-content  w3-padding-64" style="max-width:800px" id="band">
-    <h2 class="w3-wide w3-center">{{key.title}}</h2>
+    <h3 class="w3-wide w3-center">{{key.title}}</h3>
     <p class="w3-opacity w3-center"><i>{{key.score}}</p>
     <p class="w3-justify">
 {% autoescape off %}
@@ -26,9 +26,10 @@ body {font-family: "Lato", sans-serif}
     {% endautoescape %}
   </p>
   <hr align="left" width="100%">
+  <hr align="left" width="100%">
     <div class="w3-row w3-padding-16">
       <div class="w3-third">
-        <p>Date: {{key.pub_date}}</p>
+        <p>{{key.pub_date}}</p>
          <a href={{key.url}}>url</a>
       </div>
     </div>
