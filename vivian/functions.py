@@ -17,6 +17,6 @@ def reddit():
             date = datetime.utcfromtimestamp(submission.created_utc)
             top_comment = [comment.body for comment in submission.comments if (hasattr(comment, "body") and comment.distinguished==None)][0]
             Writingprompt.objects.update_or_create(title=submission.title, comment=top_comment,
-            defaults={'score':submission.score, 'pub_date':date},)
+            defaults={'score':submission.score, 'pub_date':date, 'url':submission.url},)
 
     return 30

@@ -25,18 +25,11 @@ body {font-family: "Lato", sans-serif}
       {{key.comment|markdown}}
     {% endautoescape %}
   </p>
-    <div class="w3-row w3-padding-32">
+  <hr align="left" width="100%">
+    <div class="w3-row w3-padding-16">
       <div class="w3-third">
-        <p>{{key.pub_date}}</p>
-        <img src="/w3images/bandmember.jpg" class="w3-round w3-margin-bottom" alt="Random Name" style="width:60%">
-      </div>
-      <div class="w3-third">
-        <p>Name</p>
-        <img src="/w3images/bandmember.jpg" class="w3-round w3-margin-bottom" alt="Random Name" style="width:60%">
-      </div>
-      <div class="w3-third">
-        <p>Name</p>
-        <img src="/w3images/bandmember.jpg" class="w3-round" alt="Random Name" style="width:60%">
+        <p>Date: {{key.pub_date}}</p>
+         <a href={{key.url}}>url</a>
       </div>
     </div>
   </div>
