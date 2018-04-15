@@ -13,6 +13,12 @@ body {font-family: "Lato", sans-serif}
 <body>
 {%load vivian_commands%}
 <!-- Page content -->
+<form action="/vivian/" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input type="image" value="Submit" width="1.85%" height="1.85%"
+    src="https://image.flaticon.com/icons/svg/24/24143.svg"/>
+</form>
 <div class="w3-content" style="max-width:2000px;margin-top:46px">
 
   {% for key in question %}
