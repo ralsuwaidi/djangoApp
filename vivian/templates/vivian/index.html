@@ -7,25 +7,28 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
-body {font-family: "Lato", sans-serif}
-.mySlides {display: none}
+  body {
+    font-family: "Lato", sans-serif
+  }
 </style>
-<body>
-{%load vivian_commands%}
-<!-- Page content -->
-<form action="/vivian/" method="post">
-    {% csrf_token %}
-    {{ form }}
-    <input type="image" value="Submit" width="1.85%" height="1.85%"
-    src="https://image.flaticon.com/icons/svg/24/24143.svg"/>
-</form>
-<div class="w3-content" style="max-width:2000px;margin-top:46px">
 
-  {% for key in question %}
-  <!-- The Band Section -->
-  <div class="w3-container w3-content  w3-padding-64" style="max-width:800px" id="band">
-    <h3 class="w3-wide w3-center">{{key.title}}</h3>
-    <p class="w3-opacity w3-center"><i>{{key.score}}</p>
+<body>
+  <!-- Page content -->
+  {%load vivian_commands%}
+  <!--button -->
+  <div class="w3-opacity w3-center w3-padding-16">
+    <form action="/vivian/" method="post">
+      {% csrf_token %} {{ form }}
+      <input type="image" value="Submit" width="1.98%" height="1.98%" src="https://image.flaticon.com/icons/svg/24/24143.svg" />
+    </form>
+  </div>
+  <div class="w3-content" style="max-width:2000px;margin-top:46px">
+
+    {% for key in question %}
+    <!-- The Band Section -->
+    <div class="w3-container w3-content  w3-padding-64" style="max-width:800px" id="band">
+      <h3 class="w3-wide w3-center">{{key.title}}</h3>
+      <p class="w3-opacity w3-center"><i>{{key.score}}</p>
     <p class="w3-justify">
 {% autoescape off %}
       {{key.comment|markdown}}
