@@ -15,7 +15,7 @@ def index(request):
     if request.method == 'POST':
         # create a form instance and populate it with data from the request:
         # check whether it's valid:
-        
+
                 latest_question_list = Writingprompt.objects.order_by("-score")
                 return render(request, 'vivian/index.html', {'question': latest_question_list, 'raw_comment':v})
 
