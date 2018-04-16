@@ -1,16 +1,20 @@
 <!DOCTYPE html>
 <html>
 <title>Writingprompt</title>
+{% load static %}
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="{% static 'js/jquery-3.1.1.min.js' %}"></script>
+<script src="{% static 'js/jquery.waypoints.min.js' %}"></script>
+<script src="{% static 'js/infinite.min.js' %}"></script>
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
-.no-italics {
+  .no-italics {
     font-style: normal !important;
     font-family: "Lato", sans-serif;
-}
+  }
 </style>
 
 <body>
@@ -24,7 +28,6 @@
     </form>
   </div>
   <div class="w3-content" style="max-width:2000px;margin-top:46px">
-
     {% for key in question %}
     <!-- The Band Section -->
     <div class="w3-container w3-content  w3-padding-64" style="max-width:800px" id="band">
