@@ -7,9 +7,11 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
-  body {
-    font-family: "Lato", sans-serif
-  }
+.no-italics {
+    font-style: normal;
+    
+
+}
 </style>
 
 <body>
@@ -26,13 +28,13 @@
 
     {% for key in question %}
     <!-- The Band Section -->
-    <div class="w3-container w3-content  w3-padding-64" style="max-width:800px" id="band">
+    <div class="w3-container w3-content  w3-padding-64  no-italics" style="max-width:800px" id="band">
       <h3 class="w3-wide w3-center">{{key.title}}</h3>
       <p class="w3-opacity w3-center"><i>{{key.score}}</p>
-    <p class="w3-justify">
-{% autoescape off %}
+    <p class="w3-justify" >
+      {% autoescape off %}
       {{key.comment|markdown}}
-    {% endautoescape %}
+      {% endautoescape %}
   </p>
   <hr align="left" width="100%">
   <hr align="left" width="100%">
