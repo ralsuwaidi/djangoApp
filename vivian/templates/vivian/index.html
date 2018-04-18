@@ -21,13 +21,16 @@
   <!-- Page content -->
   {%load vivian_commands%}
   <!--button -->
-  <div class="w3-center w3-padding-16">
-    <form action="/vivian/" method="post">
-      {% csrf_token %} {{ form }}
-      <input class="w3-hover-opacity" type="image" value="Submit" width="20" height="20" src="https://image.flaticon.com/icons/svg/24/24143.svg" />
-    </form>
-  </div>
-  <div class="w3-content" style="max-width:2000px;margin-top:46px">
+  <nav class="w3-sidebar w3-bar-block w3-white w3-collapse w3-top" style="z-index:3;width:250px" id="mySidebar">
+      <a onclick="myAccFunc()" href="javascript:void(0)" class="w3-button w3-block w3-white w3-left-align" id="myBtn">
+        Sort <i class="fa fa-caret-down"></i>
+      </a>
+      <div id="demoAcc" class="w3-bar-block w3-hide w3-padding-large w3-medium">
+        <a href="#" class="w3-bar-item w3-button">Date</a>
+        <a href="#" class="w3-bar-item w3-button">Score</a>
+      </div>
+    </div>
+  </nav>
     {% for key in question %}
     <!-- The Band Section -->
     <div class="w3-container w3-content  w3-padding-64" style="max-width:800px" id="band">
@@ -67,6 +70,28 @@
     </span>
 </div>
 
+<script>
+// Accordion
+function myAccFunc() {
+    var x = document.getElementById("demoAcc");
+    if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+    } else {
+        x.className = x.className.replace(" w3-show", "");
+    }
+}
 
+
+// Script to open and close sidebar
+function w3_open() {
+    document.getElementById("mySidebar").style.display = "block";
+    document.getElementById("myOverlay").style.display = "block";
+}
+
+function w3_close() {
+    document.getElementById("mySidebar").style.display = "none";
+    document.getElementById("myOverlay").style.display = "none";
+}
+</script>
 </body>
 </html>
