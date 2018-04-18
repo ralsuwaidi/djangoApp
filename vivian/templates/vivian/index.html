@@ -17,22 +17,31 @@
 <body>
   <!-- Page content -->
   {%load vivian_commands%}
-  <!--button -->
   <nav class="w3-sidebar w3-bar-block w3-white w3-collapse w3-top" style="z-index:3;width:250px" id="mySidebar">
-      <a onclick="myAccFunc()" href="javascript:void(0)" class="w3-button w3-block w3-white w3-left-align" id="myBtn">
+    <a onclick="myAccFunc()" href="javascript:void(0)" class="w3-button w3-block w3-white w3-left-align" id="myBtn">
         Sort <i class="fa fa-caret-down"></i>
       </a>
-      <div id="demoAcc" class="w3-bar-block w3-hide w3-padding-large w3-medium">
-        <a href="#" class="w3-bar-item w3-button">Date</a>
-        <a href="#" class="w3-bar-item w3-button">Score</a>
-      </div>
+    <div id="demoAcc" class="w3-bar-block w3-hide w3-padding-large w3-medium">
+      <a href="/date/" class="w3-bar-item w3-button">Date</a>
+      <a href="/hot/" class="w3-bar-item w3-button">Score</a>
+    </div>
     </div>
   </nav>
-    {% for key in question %}
-    <!-- The Band Section -->
-    <div class="w3-container w3-content  w3-padding-64" style="max-width:800px" id="band">
-      <h3 class="w3-wide w3-center">{{key.title}}</h3>
-      <p class="w3-opacity w3-center no-italics"><i>{{key.score}}</p>
+
+  <!-- Top menu on small screens -->
+  <header class="w3-bar w3-hide-large w3-white w3-xlarge">
+    <div class="w3-bar-item w3-padding-24 w3-wide">LOGO</div>
+    <a href="javascript:void(0)" class="w3-bar-item w3-button w3-padding-24 w3-right" onclick="w3_open()"><i class="fa fa-bars"></i></a>
+  </header>
+
+  <!-- Overlay effect when opening sidebar on small screens -->
+  <div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+  {% for key in question %}
+  <!-- The Band Section -->
+  <div class="w3-container w3-content  w3-padding-64" style="max-width:800px" id="band">
+    <h3 class="w3-wide w3-center">{{key.title}}</h3>
+    <p class="w3-opacity w3-center no-italics"><i>{{key.score}}</p>
     <div class="no-italics w3-justify" >
       {% autoescape off %}
       {{key.comment|markdown}}
