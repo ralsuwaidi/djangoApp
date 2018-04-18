@@ -6,7 +6,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <style>
   .no-italics {
     font-style: normal !important;
@@ -39,7 +42,8 @@
   {% for key in question %}
   <!-- The Band Section -->
   <div class="w3-container w3-content  w3-padding-64" style="max-width:800px" id="band">
-    <h3 class="w3-wide w3-center">{{key.title}}</h3>
+    <h3 class="w3-wide w3-center w3-bar-block hidden-xs hidden-sm no-italics">{{key.title}}</h3>
+    <h4 class="w3-wide w3-center w3-hide-large no-italics">{{key.title}}</h4>
     <p class="w3-opacity w3-center no-italics"><i>{{key.score}}</p>
     <div class="no-italics w3-justify" >
       {% autoescape off %}
