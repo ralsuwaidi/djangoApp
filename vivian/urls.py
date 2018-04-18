@@ -1,5 +1,5 @@
 from django.urls import path
-from .functions import reddit, pop_reddit
+from .functions import pop_reddit
 
 from . import views
 pop_reddit()
