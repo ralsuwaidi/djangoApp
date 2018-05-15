@@ -1,106 +1,217 @@
-<!DOCTYPE html>
-<html>
-<title>Writingprompt</title>
-{% load static %}
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<style>
-  .no-italics {
-    font-style: normal !important;
-    font-family: "Lato", sans-serif;
-  }
-</style>
+<!doctype html>
+<!--
+  Material Design Lite
+  Copyright 2015 Google Inc. All rights reserved.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      https://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License
+-->
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="A front-end template that helps you build fast, modern mobile web apps.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <title>Material Design Lite</title>
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="icon" sizes="192x192" href="images/android-desktop.png">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Material Design Lite">
+    <link rel="apple-touch-icon-precomposed" href="images/ios-desktop.png">
+
+    <!-- Tile icon for Win8 (144x144 + tile color) -->
+    <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
+    <meta name="msapplication-TileColor" content="#3372DF">
+
+    <link rel="shortcut icon" href="images/favicon.png">
+
+    <!-- SEO: If your mobile URL is different from the desktop URL, add a canonical link to the desktop page https://developers.google.com/webmasters/smartphone-sites/feature-phones -->
+    <!--
+    <link rel="canonical" href="http://www.example.com/">
+    -->
+
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.teal-red.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        #view-source {
+            position: fixed;
+            display: block;
+            right: 0;
+            bottom: 0;
+            margin-right: 40px;
+            margin-bottom: 40px;
+            z-index: 900;
+        }
+
+        /**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+        .demo-ribbon {
+            width: 100%;
+            height: 40vh;
+            -webkit-flex-shrink: 0;
+            -ms-flex-negative: 0;
+            flex-shrink: 0;
+        }
+
+        .demo-main {
+            margin-top: -35vh;
+            -webkit-flex-shrink: 0;
+            -ms-flex-negative: 0;
+            flex-shrink: 0;
+        }
+
+        .demo-header .mdl-layout__header-row {
+            padding-left: 40px;
+        }
+
+        .demo-container {
+            max-width: 1600px;
+            width: calc(100% - 16px);
+            margin: 0 auto;
+        }
+
+        .demo-content {
+            border-radius: 2px;
+            padding: 80px 56px;
+            margin-bottom: 80px;
+        }
+
+        .demo-layout.is-small-screen .demo-content {
+            padding: 40px 28px;
+        }
+
+        .demo-content h3 {
+            margin-top: 48px;
+        }
+
+        .demo-footer {
+            padding-left: 40px;
+        }
+
+        .demo-footer .mdl-mini-footer--link-list a {
+            font-size: 13px;
+        }
+    </style>
+</head>
+
+{%load vivian_commands%}
 
 <body>
-  <!-- Page content -->
-  {%load vivian_commands%}
-  <nav class="w3-sidebar w3-bar-block w3-white w3-collapse w3-top" style="z-index:3;width:250px" id="mySidebar">
-    <a onclick="myAccFunc()" href="javascript:void(0)" class="w3-button w3-block w3-white w3-left-align" id="myBtn">
-        Sort <i class="fa fa-caret-down"></i>
-      </a>
-    <div id="demoAcc" class="w3-bar-block w3-hide w3-padding-large w3-medium">
-      <a href="/date/" class="w3-bar-item w3-button">Date</a>
-      <a href="/hot/" class="w3-bar-item w3-button">Score</a>
+    
+    <div class="demo-layout mdl-layout mdl-layout--fixed-header mdl-js-layout mdl-color--grey-100">
+        <header class="demo-header mdl-layout__header w3-white mdl-color-text--grey-600">
+            <div class="mdl-layout__header-row">
+                <span class="mdl-layout-title">Home</span>
+                <div class="mdl-layout-spacer"></div>
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+                        <label class="mdl-button mdl-js-button mdl-button--icon" for="search-expandable">
+                          <i class="material-icons">search</i>
+                        </label>
+                        <div class="mdl-textfield__expandable-holder">
+                          <input class="mdl-textfield__input" type="text" id="search-expandable">
+                          <label class="mdl-textfield__label" for="search-expandable">Search text</label>
+                        </div>
+                      </div>
+                <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+                    <i class="material-icons">more_vert</i>
+                </button>
+                <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+                    <li class="mdl-menu__item">About</li>
+                    <li class="mdl-menu__item">Contact</li>
+                    <li class="mdl-menu__item">Legal information</li>
+                </ul>
+            </div>
+        </header>
+        <div class="demo-ribbon"></div>
+        <main class="demo-main mdl-layout__content">
+            <div class="demo-container mdl-grid">
+                <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
+                <div class="demo-content mdl-color--white mdl-shadow--4dp content mdl-color-text--grey-800 mdl-cell mdl-cell--8-col">
+                   <!-- Expandable Textfield -->
+
+                    {% for key in question %}
+
+                    <h4>{{key.title}}</h4>
+                    <!-- Basic Chip -->
+                    <div class="w3-padding-16">
+                        <span class="mdl-chip">
+                            <span class="mdl-chip__text">{{key.score}}</span>
+                        </span>
+                    </div>
+                    <p>
+                        {% autoescape off %} {{key.comment|markdown}} {% endautoescape %}
+                    </p>
+
+                    <!-- Simple Tooltip -->
+                    <a href="{{key.url}}">
+                        <div id="tt1" class="icon material-icons">link</div>
+                    </a>
+                    <div class="mdl-tooltip" data-mdl-for="tt1">
+
+                        URL
+                    </div>
+
+
+                    {%endfor%}
+
+                </div>
+            </div>
+            <footer class="demo-footer mdl-mini-footer">
+                <div class="mdl-mini-footer--left-section">
+                    <div class="pagination w3-center">
+                        <span class="step-links">
+                            {% if question.has_previous %}
+                            <a href="?page=1">&laquo; first</a>
+                            <a href="?page={{ question.previous_page_number }}">previous</a>
+                            {% endif %}
+
+                            <span class="current">
+                                Page {{ question.number }} of {{ question.paginator.num_pages }}.
+                            </span>
+
+                            {% if question.has_next %}
+                            <a href="?page={{ question.next_page_number }}">next</a>
+                            <a href="?page={{ question.paginator.num_pages }}">last &raquo;</a>
+                            {% endif %}
+                        </span>
+                    </div>
+                </div>
+            </footer>
+        </main>
     </div>
-    </div>
-  </nav>
 
-  <!-- Top menu on small screens -->
-  <header class="w3-bar w3-hide-large w3-white w3-xlarge">
-    <a href="javascript:void(0)" class="w3-bar-item w3-button w3-padding-24 w3-right" onclick="w3_open()"><i class="fa fa-bars"></i></a>
-  </header>
-
-  <!-- Overlay effect when opening sidebar on small screens -->
-  <div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
-
-  {% for key in question %}
-  <!-- The Band Section -->
-  <div class="w3-container w3-content  w3-padding-64" style="max-width:800px" id="band">
-    <h3 class="w3-wide w3-center w3-bar-block hidden-xs hidden-sm no-italics">{{key.title}}</h3>
-    <h4 class="w3-wide w3-center w3-hide-large no-italics">{{key.title}}</h4>
-    <p class="w3-opacity w3-center no-italics"><i>{{key.score}}</p>
-    <div class="no-italics w3-justify" >
-      {% autoescape off %}
-      {{key.comment|markdown}}
-      {% endautoescape %}
-  </div>
-  <hr align="left" width="100%">
-  <hr align="left" width="100%">
-    <div class="w3-row w3-padding-16">
-      <div class="w3-third">
-        <p>{{key.pub_date}}</p>
-         <a href={{key.url}}>url</a>
-      </div>
-    </div>
-  </div>
-  {%endfor%}
-
-  <div class="pagination w3-center">
-    <span class="step-links">
-        {% if question.has_previous %}
-            <a href="?page=1">&laquo; first</a>
-            <a href="?page={{ question.previous_page_number }}">previous</a>
-        {% endif %}
-
-        <span class="current">
-            Page {{ question.number }} of {{ question.paginator.num_pages }}.
-        </span>
-
-        {% if question.has_next %}
-            <a href="?page={{ question.next_page_number }}">next</a>
-            <a href="?page={{ question.paginator.num_pages }}">last &raquo;</a>
-        {% endif %}
-    </span>
-</div>
-
-<script>
-// Accordion
-function myAccFunc() {
-    var x = document.getElementById("demoAcc");
-    if (x.className.indexOf("w3-show") == -1) {
-        x.className += " w3-show";
-    } else {
-        x.className = x.className.replace(" w3-show", "");
-    }
-}
-
-
-// Script to open and close sidebar
-function w3_open() {
-    document.getElementById("mySidebar").style.display = "block";
-    document.getElementById("myOverlay").style.display = "block";
-}
-
-function w3_close() {
-    document.getElementById("mySidebar").style.display = "none";
-    document.getElementById("myOverlay").style.display = "none";
-}
-</script>
 </body>
+
 </html>
