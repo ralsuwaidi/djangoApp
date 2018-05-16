@@ -21,4 +21,5 @@ urlpatterns = [
     path('polls/', include('polls.urls')),
     path('vivian/', include('vivian.urls')),
     path('', include('vivian.urls')),
+    path('dashboard/', include('dashboard.urls')),
 ]

@@ -32,6 +32,7 @@ ALLOWED_HOSTS = ['ralsuwaidi.pythonanywhere.com', 'localhost']
 
 INSTALLED_APPS = [
     'polls.apps.PollsConfig',
+    'dashboard.apps.DashboardConfig',
     'vivian.apps.VivianConfig',
     'django.contrib.admin',
     'django.contrib.auth',
