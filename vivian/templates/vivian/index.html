@@ -128,6 +128,10 @@
         .small-screen-comfort-read {
             padding: 5px;
         }
+
+         .parent-style {
+            all: unset;
+        }
     </style>
 </head>
 
@@ -149,12 +153,15 @@
                     </div>
                 </div>
                 <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
-                    <i class="material-icons">more_vert</i>
+                    <i class="material-icons">sort</i>
                 </button>
                 <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
-                    <li class="mdl-menu__item">About</li>
-                    <li class="mdl-menu__item">Contact</li>
-                    <li class="mdl-menu__item">Legal information</li>
+                    <li class="mdl-menu__item">
+                       <a href="/hot" class="parent-style"> Hot</a>
+                    </li>
+                    <li class="mdl-menu__item">
+                            <a href="/date" class="parent-style"> Date</a>
+                         </li>
                 </ul>
             </div>
         </header>
@@ -206,7 +213,7 @@
                     <!-- Basic Chip -->
                     <div class="w3-padding-16">
                         <span class="mdl-chip">
-                            <span class="mdl-chip__text" id="tt2">{{key.score}}</span>
+                            <span class="mdl-chip__text" id="tt2">Score {{key.score}}</span>
                             <div class="mdl-tooltip" data-mdl-for="tt2">
 
                                 Score
